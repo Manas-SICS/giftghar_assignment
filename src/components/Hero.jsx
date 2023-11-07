@@ -63,11 +63,12 @@ const Hero = (props) => {
   };
 
   const handleSubmit = () => {
-    props.onClick(activeId);
     if (activeId === "giftsel") {
       setActiveId("occasionsel");
-    } else if (activeId === "occasionsel") {
+      props.onClick(activeId);
+    } else if (activeId === "occasionsel" && selectedOccasion != "") {
       setActiveId("giftsel");
+      props.onClick(activeId);
     }
   };
 
